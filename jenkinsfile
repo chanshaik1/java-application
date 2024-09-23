@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    tools{
+        maven 'Maven3.9.9'
+    }
+
+    stages {
+        stage('clone the Repository') {
+            steps {
+                git branch: 'build-and-deploy-to-tomcat-jenkinsfile', url: 'https://github.com/chanshaik1/java-application.git'
+            }
+        }
+    stage('build the code') {
+            steps {
+            sh 'mvn clean install'
+            
+                
+            }    
+        } 
+    stage('deploy to tomcat') {
+            steps {
+             deploy adapters: [tomcat7(credentialsId: 'tom', path: '', url: 'http://43.205.239.73:8080')], contextPath: null, war: '**/*.war'
+        
+        }        
+            }        
+    }
+}
