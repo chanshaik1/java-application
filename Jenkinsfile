@@ -1,14 +1,14 @@
 pipeline {
     agent any
     tools{
-        maven 'Maven3.8.7'
+        maven 'maven3.9.9'
     }
 
     stages {
         stage('Clone the repository ') {
             steps {
                 
-             git branch: 'build-and-push-to-jfrog-jenkinsfile', credentialsId: 'Github_credentails', url: 'https://github.com/techworldwithmurali/java-application.git'   
+             git branch: 'build-and-push-to-jfrog-jenkinsfile', url: 'https://github.com/chanshaik1/java-application.git'   
                 
             }
         }
@@ -22,12 +22,12 @@ pipeline {
       stage('Push the artifacts into Jfrog artifactory') {
             steps {
               rtUpload (
-                serverId: 'Jfrog-dev-server',
+                serverId: 'jfrog-server-1',
                 spec: '''{
                       "files": [
                         {
                           "pattern": "*.war",
-                           "target": "web-application/"
+                           "target": "web-application-1/"
                         }
                     ]
                 }'''
