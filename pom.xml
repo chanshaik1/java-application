@@ -1,6 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/6.0.0 http://maven.apache.org/maven-v6_0_0.xsd">
-  <modelVersion>6.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/5.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/5.0.0 http://maven.apache.org/maven-v5_0_0.xsd">
+  <modelVersion>5.0.0</modelVersion>
   <groupId>com.techworldwithmurali</groupId>
   <artifactId>web-application</artifactId>
   <packaging>war</packaging>
