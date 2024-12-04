@@ -5,23 +5,24 @@ pipeline {
     }
 
     stages {
-        stage('clone the Repository') {
+        stage('Clone the repository') {
             steps {
                 git branch: 'build-and-deploy-to-tomcat-jenkinsfile', url: 'https://github.com/chanshaik1/java-application.git'
             }
         }
-    stage('build the code') {
-            steps {
-            sh 'mvn clean install'
-            
-                
-            }    
-        } 
-    stage('deploy to tomcat') {
-            steps {
-             deploy adapters: [tomcat7(credentialsId: 'tom', path: '', url: 'http://43.205.239.73:8080')], contextPath: null, war: '**/*.war'
         
-        }        
-            }        
+        stage('Build the code') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        
+        stage('Deploy to tomcat') {
+            steps {
+            deploy adapters: [tomcat7(credentialsId: 'tomcat_username_password', path: '', url: 'http://13.234.77.195:8080')], contextPath: null, war: '**/*.war'
+                
+            }
+        }
+        
     }
 }
