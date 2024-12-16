@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: web-application
-        image: web-app:1
+        image: chanshaik1/web-application
         ports:
         - containerPort: 8080
       imagePullSecrets:
